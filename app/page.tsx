@@ -60,12 +60,12 @@ export default function Page() {
             <span className="font-mono text-sm font-semibold tracking-[0.26em] text-white">ASTRO<span className="text-cyan-300">REALM</span></span>
           </a>
           <div className="hidden items-center gap-9 md:flex">
-            {['Home', 'Discover', 'Features', 'About'].map((item, index) => <a key={item} href={`#${item.toLowerCase()}`} className={`text-[13px] transition-colors hover:text-cyan-200 ${index === 0 ? 'text-white' : 'text-slate-400'}`}>{item}</a>)}
+            {['Home', 'Discover', 'Features', 'About'].map((item, index) => <a key={item} href={item === 'Discover' ? '#anomalies' : `#${item.toLowerCase()}`} className={`text-[13px] transition-colors hover:text-cyan-200 ${index === 0 ? 'text-white' : 'text-slate-400'}`}>{item}</a>)}
           </div>
           <a href="#login" className="hidden items-center gap-2 rounded-full border border-cyan-300/40 bg-cyan-300/10 px-5 py-2.5 text-[13px] font-medium text-cyan-100 shadow-[0_0_24px_rgba(44,212,255,0.12)] transition-all hover:border-cyan-200 hover:bg-cyan-300/20 md:flex">Sign In <ArrowRight className="h-3.5 w-3.5" /></a>
           <button className="text-slate-200 md:hidden" onClick={() => setMenuOpen(!menuOpen)} aria-label={menuOpen ? 'Close menu' : 'Open menu'}>{menuOpen ? <X /> : <Menu />}</button>
         </div>
-        {menuOpen && <div className="border-t border-white/[0.08] px-6 pb-5 pt-3 md:hidden">{['Home', 'Discover', 'Features', 'About'].map((item) => <a key={item} href={`#${item.toLowerCase()}`} onClick={() => setMenuOpen(false)} className="block py-3 text-sm text-slate-300">{item}</a>)}<a href="#login" onClick={() => setMenuOpen(false)} className="mt-2 block rounded-full bg-cyan-300 px-4 py-3 text-center text-sm font-semibold text-[#06101e]">Sign In</a></div>}
+        {menuOpen && <div className="border-t border-white/[0.08] px-6 pb-5 pt-3 md:hidden">{['Home', 'Discover', 'Features', 'About'].map((item) => <a key={item} href={item === 'Discover' ? '#anomalies' : `#${item.toLowerCase()}`} onClick={() => setMenuOpen(false)} className="block py-3 text-sm text-slate-300">{item}</a>)}<a href="#login" onClick={() => setMenuOpen(false)} className="mt-2 block rounded-full bg-cyan-300 px-4 py-3 text-center text-sm font-semibold text-[#06101e]">Sign In</a></div>}
       </nav>
 
       <section id="home" className="relative isolate flex min-h-[760px] items-center pt-24 lg:min-h-[850px]">
